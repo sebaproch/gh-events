@@ -1,9 +1,18 @@
 name: Events Demo 1
 on:
+#komentarz
   pull_request:
     types:
       - opened
   workflow_dispatch:
+  push:
+    branches:
+    - main # main
+    - 'dev-*' # dev-new dev-this-is-new
+    - 'fest/**' # feat/new feat/new/button
+    # developer-1 # to sie nie zalicza to tych przykladow u gory
+    paths-ignore:
+    - '.github/workflows/*' # czyli uruchamia workflow gdy nic nie zmienialismy w delderze i plikach
 jobs:
   deploy:
     runs-on: ubuntu-latest
